@@ -1,6 +1,6 @@
 <?php
 
-namespace hatamiarash7\PFaker;
+namespace Hatamiarash7\PFaker;
 
 class PFaker
 {
