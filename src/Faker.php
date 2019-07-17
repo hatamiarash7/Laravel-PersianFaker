@@ -4,14 +4,14 @@ namespace hatamiarash7\PFaker;
 
 class PFaker
 {
-	private $objects;
+	private static $objects;
 
 	public function __construct()
 	{
-		$this->objects = require __DIR__ . '/libs/variables.php';
+		self::$objects = require __DIR__ . '/libs/variables.php';
 	}
 
-	private function getRandomKey($object = null)
+	private static function getRandomKey($object = null)
 	{
 		$name = 0;
 		$array = [];
@@ -20,96 +20,96 @@ class PFaker
 			$array = $object;
 			$name = array_rand($object);
 		} elseif (is_string($object)) {
-			$array = $this->objects[$object];
+			$array = self::$objects[$object];
 			$name = array_rand($array);
 		}
 
-		return $this->string($array[$name]);
+		return self::string($array[$name]);
 	}
 
-	public function firstName()
+	public static function firstName()
 	{
-		return $this->getRandomKey('firstName');
+		return self::getRandomKey('firstName');
 	}
 
-	public function lastName()
+	public static function lastName()
 	{
-		$name = $this->getRandomKey('firstName');
-		$lname = $this->getRandomKey('lastName');
+		$name = self::getRandomKey('firstName');
+		$lname = self::getRandomKey('lastName');
 		return $name . ' ' . $lname;
 	}
 
-	public function email($count = null)
+	public static function email($count = null)
 	{
 		if (!is_null($count)) {
-			$mail = strtolower($this->str_random($count));
+			$mail = strtolower(self::str_random($count));
 		} else {
-			$mail = strtolower($this->str_random(rand(6, 10)));
+			$mail = strtolower(self::str_random(rand(6, 10)));
 		}
-		$email = $mail . $this->getRandomKey('email');
+		$email = $mail . self::getRandomKey('email');
 		return $email;
 	}
 
-	public function jobTitle()
+	public static function jobTitle()
 	{
-		return $this->getRandomKey('jobTitle');
+		return self::getRandomKey('jobTitle');
 	}
 
-	public function word()
+	public static function word()
 	{
-		return $this->getRandomKey('word');
+		return self::getRandomKey('word');
 	}
 
-	public function sentence()
+	public static function sentence()
 	{
-		return $this->getRandomKey('sentence') . '.';
+		return self::getRandomKey('sentence') . '.';
 	}
 
-	public function paragraph()
+	public static function paragraph()
 	{
-		return $this->getRandomKey('paragraph') . '.';
+		return self::getRandomKey('paragraph') . '.';
 	}
 
-	public function mobile()
+	public static function mobile()
 	{
-		$prefix = $this->getRandomKey('mobile');
-		$phone = $this->string('0' . $prefix . $this->randomNumber(7));
+		$prefix = self::getRandomKey('mobile');
+		$phone = self::string('0' . $prefix . self::randomNumber(7));
 		return (strlen($phone) !== 11 ? $phone . rand(1, 10) : $phone);
 	}
 
-	public function telephone()
+	public static function telephone()
 	{
-		$prefix = $this->getRandomKey('telephone');
-		return $this->string('0' . $prefix . $this->randomNumber(7));
+		$prefix = self::getRandomKey('telephone');
+		return self::string('0' . $prefix . self::randomNumber(7));
 	}
 
-	public function city()
+	public static function city()
 	{
-		return $this->getRandomKey('city');
+		return self::getRandomKey('city');
 	}
 
-	public function state()
+	public static function state()
 	{
-		return $this->getRandomKey('state');
+		return self::getRandomKey('state');
 	}
 
-	public function domain($length = null)
+	public static function domain($length = null)
 	{
 		if (!is_null($length)) {
-			$domainName = strtolower($this->str_random($length));
+			$domainName = strtolower(self::str_random($length));
 		} else {
-			$domainName = strtolower($this->str_random(rand(5, 8)));
+			$domainName = strtolower(self::str_random(rand(5, 8)));
 		}
-		$domain = $this->getRandomKey('protocol') . '://' . 'www.' . $domainName . '.' . $this->getRandomKey('domain');
+		$domain = self::getRandomKey('protocol') . '://' . 'www.' . $domainName . '.' . self::getRandomKey('domain');
 		return $domain;
 	}
 
-	public function code_melli()
+	public static function code_melli()
 	{
-		return $this->randomNumber(10);
+		return self::randomNumber(10);
 	}
 
-	public function birthday($sign = null)
+	public static function birthday($sign = null)
 	{
 		$year = rand(1333, 1380);
 		$mouth = rand(1, 12);
@@ -122,15 +122,15 @@ class PFaker
 		}
 	}
 
-	public function fullName()
+	public static function fullName()
 	{
-		$firstName = $this->getRandomKey('firstName');
-		$lastName = $this->getRandomKey('lastName');
-		$lastName2 = $this->getRandomKey('firstName');
+		$firstName = self::getRandomKey('firstName');
+		$lastName = self::getRandomKey('lastName');
+		$lastName2 = self::getRandomKey('firstName');
 		return $firstName . ' ' . $lastName2 . ' ' . $lastName;
 	}
 
-	public function age($min = null, $max = null)
+	public static function age($min = null, $max = null)
 	{
 		if (!is_null($min) && !is_null($min)) {
 			$age = rand($min, $max);
@@ -140,23 +140,23 @@ class PFaker
 		return $age;
 	}
 
-	public function address()
+	public static function address()
 	{
-		return $this->getRandomKey('address');
+		return self::getRandomKey('address');
 	}
 
-	private function str_random($length = 16)
+	private static function str_random($length = 16)
 	{
 		$pool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		return substr(str_shuffle(str_repeat($pool, 5)), 0, $length);
 	}
 
-	private function string($value)
+	private static function string($value)
 	{
 		return (string)$value;
 	}
 
-	private function randomNumber($length = 20, $int = false)
+	private static function randomNumber($length = 20, $int = false)
 	{
 		$numbers = "0123456789";
 
@@ -177,6 +177,6 @@ class PFaker
 			return (integer)$number;
 		}
 
-		return $this->string($number);
+		return self::string($number);
 	}
 }
