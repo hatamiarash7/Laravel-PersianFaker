@@ -1,0 +1,42 @@
+{
+  "name": "hatamiarash7/persian-faker",
+  "description": "Persian faker for laravel",
+  "type": "library",
+  "license": "GPL-3.0",
+  "keywords": [
+    "laravel",
+    "faker",
+    "persian",
+    "farsi"
+  ],
+  "authors": [
+    {
+      "name": "Arash Hatami",
+      "email": "hatamiarash7@gmail.com",
+      "homepage": "https://github.com/hatamiarash7"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": "^7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Hatamiarash7\\PFaker\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Hatamiarash7\\PFaker\\PFakerServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true
+  },
+  "support": {
+    "issues": "https://github.com/hatamiarash7/Laravel-PersianFaker/issues"
+  }
+}
