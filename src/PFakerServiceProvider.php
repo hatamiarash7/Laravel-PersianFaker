@@ -10,14 +10,9 @@ class PFakerServiceProvider extends ServiceProvider
 
 	public function boot()
 	{
-
 	}
 
 	public function register()
 	{
-		$this->app->bind('PFaker', function () {
-			return new PFaker();
-		});
 	}
-
 }
