@@ -1,5 +1,5 @@
 # Persian Faker
-Persian faker package for laravel.
+Persian faker package for laravel
 
 ## Installation
 
