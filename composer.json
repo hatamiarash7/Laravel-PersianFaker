@@ -19,7 +19,7 @@
   "minimum-stability": "dev",
   "require": {
     "php": "^7.0",
-	"symfony/translation": "^5.0"
+	"symfony/translation": "^4.3"
   },
   "autoload": {
     "psr-4": {
