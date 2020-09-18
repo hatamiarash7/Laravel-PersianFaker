@@ -2,25 +2,38 @@
 
 namespace Hatamiarash7\PFaker;
 
+use Arr;
+
 class PFaker
 {
 	private static $objects;
 
 	public function __construct()
 	{
-		self::$objects = require __DIR__ . '/libs/variables.php';
+		self::makeObjects();
+	}
+
+	private static function makeObjects()
+	{
+
+		if (is_null(self::$objects))
+			self::$objects = include __DIR__ . '/libs/variables.php';
+
+		return self::$objects;
 	}
 
 	private static function getRandomKey($object = null)
 	{
+
+		self::makeObjects();
+
 		$name = 0;
 		$array = [];
-
 		if (is_array($object)) {
 			$array = $object;
 			$name = array_rand($object);
 		} elseif (is_string($object)) {
-			$array = self::$objects[$object];
+			$array = isset(self::$objects[$object]) ? self::$objects[$object] : [];
 			$name = array_rand($array);
 		}
 
@@ -174,7 +187,7 @@ class PFaker
 		}
 
 		if ($int) {
-			return (integer)$number;
+			return (int)$number;
 		}
 
 		return self::string($number);
