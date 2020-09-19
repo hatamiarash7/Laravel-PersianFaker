@@ -30,10 +30,13 @@ composer require hatamiarash7/persian-faker
 | ``` PFaker::paragraph() ``` | Return a random paragraph |
 
 More functions are coming ...
+---
 
 ## Support
 
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/D1D1WGU9)
+
+<div><a href="https://payping.ir/@hatamiarash7"><img src="https://cdn.payping.ir/statics/Payping-logo/Trust/blue.svg" height="128" width="128"></a></div>
 
 ## Contributing
 
