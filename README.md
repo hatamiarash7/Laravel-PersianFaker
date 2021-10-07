@@ -21,7 +21,7 @@ composer require hatamiarash7/persian-faker
 | ``` PFaker::telephone() ``` | Return a random telephone number |
 | ``` PFaker::email() ``` | Return a random email address |
 | ``` PFaker::domain() ``` | Return a random domain like: https://www.test.ir |
-| ``` PFaker::age($min,$max) ``` | Return a random you can use $min and $max but they are nullable |
+| ``` PFaker::age($min,$max) ``` | Return a random age. you can use $min and $max but they are nullable |
 | ``` PFaker::birthday($sign) ``` | Return a random birthday date use $sign for replace '/' between year/month/day |
 | ``` PFaker::address() ``` | Return a random postal address |
 | ``` PFaker::city() ``` | Return a random city of iran name |
