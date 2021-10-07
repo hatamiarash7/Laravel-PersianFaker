@@ -9,6 +9,8 @@ Install package with composer
 composer require hatamiarash7/persian-faker
 ```
 
+## Usage
+
 | Function | Description |
 | --- | --- |
 | ``` PFaker::firstName() ``` | Return a random first name |
